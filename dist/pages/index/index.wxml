@@ -1,0 +1,35 @@
+<template name="renderAddNewDiaryMode">
+    <block>
+        <at-modal compid="{{$compid__432}}">
+            <at-modal-header>新的日志</at-modal-header>
+            <at-modal-content>
+                <at-input compid="{{$compid__433}}"></at-input>
+                <at-textarea compid="{{$compid__434}}"></at-textarea>
+            </at-modal-content>
+            <at-modal-action>
+                <button bindtap="closeAddNewDiaryModel">取消</button>
+                <button bindtap="confirmAddNewDiary">确定</button>
+            </at-modal-action>
+        </at-modal>
+    </block>
+</template>
+<block wx:if="{{$taroCompReady}}">
+    <view class="page-wrap">
+        <at-nav-bar compid="{{$compid__435}}"></at-nav-bar>
+        <view>
+            <at-list>
+                <at-swipe-action compid="{{$compid__436}}">
+                    <at-list-item compid="{{$compid__437}}"></at-list-item>
+                </at-swipe-action>
+            </at-list>
+        </view>
+        <view class="icon-add-box">
+            <at-fab compid="{{$compid__438}}"><text class="at-fab__icon at-icon at-icon-add"></text>
+            </at-fab>
+        </view>
+        <at-tab-bar compid="{{$compid__439}}"></at-tab-bar>
+        <block wx:if="{{newDiaryModelShow}}">
+            <template is="renderAddNewDiaryMode" data="{{...anonymousState__temp}}"></template>
+        </block>
+    </view>
+</block>

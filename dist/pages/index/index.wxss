@@ -1,8 +1,8 @@
+
 .navibar-top {
-  margin-top: 40rpx;
-}
+  margin-top: 40rpx; }
+
 .icon-add-box {
   position: fixed;
   bottom: 150rpx;
-  right: 25rpx;
-}
+  right: 25rpx; }

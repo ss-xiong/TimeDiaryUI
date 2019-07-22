@@ -1,0 +1,20 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "TimeDiary",
+  "description": "时间日志，记录自己专注于某件时间的时间",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "libVersion": "2.7.0",
+  "condition": {},
+  "window": {
+    "navigationStyle": "custom"
+  }
+}

@@ -4,7 +4,9 @@ import { observer, inject } from '@tarojs/mobx'
 import {
   AtFab, AtModal, AtModalHeader,
   AtModalContent, AtModalAction,
-  AtForm, AtInput, AtTextarea
+  AtForm, AtInput, AtTextarea,
+  AtNavBar, AtTabBar,
+  AtList, AtListItem, AtSwipeAction
 } from 'taro-ui'
 
 import './index.scss'
@@ -35,21 +37,6 @@ class Index extends Component {
   componentDidShow () { }
 
   componentDidHide () { }
-
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
 
   // 点击添加按钮
   clickAddNewDiary = () => {
@@ -121,16 +108,51 @@ class Index extends Component {
     const { counterStore: { counter } } = this.props
     const { newDiaryModelShow } = this.state
     return (
-      <View className='index'>
-        <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>Add Async</Button>
-        <Text>{counter}</Text>
+      <View className="page-wrap">
+        <AtNavBar border title='时间日志' className="navibar-top" />
+        <View>
+          <AtList>
+          <AtSwipeAction　onClick={(e)=>{console.log(e, 'CCCClik')}} options={[
+            {
+              text: '暂停',
+              style: {
+                backgroundColor: '#6190E8'
+              }
+            },
+            {
+              text: '结束',
+              style: {
+                backgroundColor: '#FF4949'
+              }
+            }
+          ]}>
+            <AtListItem
+              title='标题文字'
+              extraText='详细信息'
+              thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
+              onClick={() => {console.log('Item click')}}
+            />
+          </AtSwipeAction>
+          </AtList>
+        </View>
+
         <View className="icon-add-box">
           <AtFab onClick={this.clickAddNewDiary}>
             <Text className='at-fab__icon at-icon at-icon-add'></Text>
           </AtFab>
         </View>
+        <AtTabBar
+          fixed
+          color="#A5A5A5"
+          selectedColor="#6190E8"
+          tabList={[
+            { title: '时间', iconType: 'list' },
+            // { title: '统计', iconType: 'analytics' },
+            { title: '设置', iconType: 'settings' }
+          ]}
+          onClick={()=>{}}
+          current={0}
+        />
         {newDiaryModelShow ? this.renderAddNewDiaryMode() : null}
       </View>
     )

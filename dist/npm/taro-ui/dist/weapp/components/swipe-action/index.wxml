@@ -1,0 +1,13 @@
+<block wx:if="{{$taroCompReady}}">
+    <view id="{{'swipeAction-' + componentId}}" class="{{rootClass}}" bindtouchmove="handleTouchMove" bindtouchend="handleTouchEnd" bindtouchstart="handleTouchStart">
+        <view class="{{anonymousState__temp}}" style="{{anonymousState__temp2}}">
+            <slot></slot>
+        </view>
+        <block wx:if="{{anonymousState__temp7}}">
+            <at-swipe-action-options compid="{{$compid__367}}">
+                <view wx:key="key" style="{{item.$loopState__temp4}}" bindtap="handleClick" class="{{item.$loopState__temp6}}" wx:for="{{loopArray1}}" wx:for-item="item" wx:for-index="key" data-e-tap-so="this" data-e-tap-a-a="{{item.$original}}" data-e-tap-a-b="{{key}}"><text class="option__text">{{item.$original.text}}</text>
+                </view>
+            </at-swipe-action-options>
+        </block>
+    </view>
+</block>
